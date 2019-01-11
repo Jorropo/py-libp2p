@@ -65,6 +65,8 @@ class Mplex(IMuxedConn):
         """
         try:
             data = await asyncio.wait_for(self.buffers[stream_id].get(), timeout=5)
+            # for aspyn
+            print("msg: " + str(data) + " read from buffer " + str(stream_id))
             return data
         except asyncio.TimeoutError:
             return None
@@ -138,12 +140,16 @@ class Mplex(IMuxedConn):
             i += 1
             stream_id, _, message = await self.read_message()
             flag = stream_id is not None and stream_id != my_stream_id and my_stream_id is not None
-
+            # for aspyn
+            print("read: " + str(message) + " for " + str(stream_id) + " from raw conn")
             if stream_id not in self.buffers:
                 self.buffers[stream_id] = asyncio.Queue()
                 await self.stream_queue.put(stream_id)
 
             await self.buffers[stream_id].put(message)
+            # for aspyn
+            print("put msg: " + str(message) + " for " + str(stream_id) + " in buffer")
+            print(str(stream_id) + " buffer size: " + str(self.buffers[stream_id].qsize()))
 
     async def read_chunk(self):
         """
