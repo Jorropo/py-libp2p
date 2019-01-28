@@ -115,6 +115,7 @@ class Swarm(INetwork):
                 return True
 
             async def conn_handler(reader, writer):
+                print("swarm conn_handler")
                 # Upgrade reader/write to a net_stream and pass \
                 # to appropriate stream handler (using multiaddr)
                 raw_conn = RawConnection(multiaddr.value_for_protocol('ip4'),

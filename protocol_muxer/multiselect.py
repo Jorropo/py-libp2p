@@ -29,7 +29,7 @@ class Multiselect(IMultiselectMuxer):
         :return: selected protocol name, handler function
         :raise Exception: negotiation failed exception
         """
-
+        print("HIT THIS MOTHERFUCKER0")
         # Create a communicator to handle all communication across the stream
         communicator = MultiselectCommunicator(stream)
 
@@ -57,6 +57,7 @@ class Multiselect(IMultiselectMuxer):
                 await communicator.write(PROTOCOL_NOT_FOUND_MSG)
 
     async def handshake(self, communicator):
+        print("HIT THIS MOTHERFUCKER1")
         """
         Perform handshake to agree on multiselect protocol
         :param communicator: communicator to use

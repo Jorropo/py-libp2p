@@ -139,14 +139,17 @@ async def test_multiple_streams_mixed_read_order():
 
     async def stream_handler_a(stream):
         while True:
-            read_string = (await stream.read()).decode()
+            # Fails here
+            contents = await stream.read()
+            read_string = contents.decode()
 
             response = "ack_a:" + read_string
             await stream.write(response.encode())
 
     async def stream_handler_b(stream):
         while True:
-            read_string = (await stream.read()).decode()
+            contents = await stream.read()
+            read_string = contents.decode()
 
             response = "ack_b:" + read_string
             await stream.write(response.encode())
@@ -159,17 +162,20 @@ async def test_multiple_streams_mixed_read_order():
     # Associate the peer with local ip address (see default parameters of Libp2p())
     node_a.get_peerstore().add_addrs(node_b.get_id(), node_b.get_addrs(), 10)
     node_b.get_peerstore().add_addrs(node_a.get_id(), node_a.get_addrs(), 10)
-
+    
+    print("REACHES ME0")
     stream_a = await node_a.new_stream(node_b.get_id(), ["/echo_a/1.0.0"])
+    print("REACHES ME1")
     stream_b = await node_a.new_stream(node_b.get_id(), ["/echo_b/1.0.0"])
-
+    print("REACHES ME2")
     # A writes to /echo_b via stream_a, and B writes to /echo_a via stream_b
     messages = ["hello" + str(x) for x in range(10)]
     for message in messages:
+        print("test_multiple_streams_mixed_read_order sending messages")
         a_message = message + "_a"
         b_message = message + "_b"
 
-        await stream_a.write(a_message.encode())
+        # await stream_a.write(a_message.encode())
         await stream_b.write(b_message.encode())
 
         # response_a = (await stream_a.read()).decode()

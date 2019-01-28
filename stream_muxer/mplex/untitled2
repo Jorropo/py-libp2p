@@ -1,0 +1,111 @@
+REACHES ME0
+fff mplex send_message| data: b'/multistream/1.0.0'
+fff mplex write_to_stream
+fff mplex_stream read
+fff mplex read_buffer
+fff mplex handle_incoming| my_stream_id: 0
+fff mplex calling read_message
+fff mplex read_message
+	fff mplex accept_stream
+fff mplex handle_incoming| my_stream_id: None
+fff mplex calling read_message
+fff mplex read_message
+fff mplex handle_incoming in while| id: 0, msg: b'/multistream/1.0.0', my_stream_id:None
+read: b'/multistream/1.0.0' for 0 from raw conn
+put msg: b'/multistream/1.0.0' for 0 in buffer
+0 buffer size: 1
+fff mplex handle_incoming exit
+fff mplex_stream write
+fff mplex_stream get_flag
+fff mplex send_message| data: b'/multistream/1.0.0'
+fff mplex write_to_stream
+fff mplex_stream read
+fff mplex read_buffer
+fff mplex _read_buffer_exists
+fff mplex _read_buffer_exists entered try
+fff mplex _read_buffer_exists obtained data
+msg: b'/multistream/1.0.0' read from buffer 0
+fff mplex_stream read
+fff mplex read_buffer
+fff mplex handle_incoming| my_stream_id: 0
+fff mplex calling read_message
+fff mplex read_message
+fff mplex handle_incoming in while| id: 0, msg: b'/multistream/1.0.0', my_stream_id:0
+read: b'/multistream/1.0.0' for 0 from raw conn
+put msg: b'/multistream/1.0.0' for 0 in buffer
+0 buffer size: 1
+fff mplex handle_incoming exit
+fff mplex _read_buffer_exists
+fff mplex _read_buffer_exists entered try
+fff mplex _read_buffer_exists obtained data
+msg: b'/multistream/1.0.0' read from buffer 0
+fff mplex_stream write
+fff mplex_stream get_flag
+fff mplex send_message| data: b'/echo_a/1.0.0'
+fff mplex write_to_stream
+fff mplex_stream read
+fff mplex read_buffer
+fff mplex handle_incoming| my_stream_id: 0
+fff mplex calling read_message
+fff mplex read_message
+fff mplex handle_incoming in while| id: 0, msg: b'/echo_a/1.0.0', my_stream_id:0
+read: b'/echo_a/1.0.0' for 0 from raw conn
+put msg: b'/echo_a/1.0.0' for 0 in buffer
+0 buffer size: 1
+fff mplex handle_incoming exit
+fff mplex _read_buffer_exists
+fff mplex _read_buffer_exists entered try
+fff mplex _read_buffer_exists obtained data
+msg: b'/echo_a/1.0.0' read from buffer 0
+fff mplex_stream write
+fff mplex_stream get_flag
+fff mplex send_message| data: b'/echo_a/1.0.0'
+fff mplex write_to_stream
+fff mplex_stream read
+fff mplex read_buffer
+fff mplex handle_incoming| my_stream_id: 0
+fff mplex calling read_message
+fff mplex read_message
+fff mplex handle_incoming in while| id: 0, msg: b'/echo_a/1.0.0', my_stream_id:0
+read: b'/echo_a/1.0.0' for 0 from raw conn
+put msg: b'/echo_a/1.0.0' for 0 in buffer
+0 buffer size: 1
+fff mplex handle_incoming exit
+fff mplex _read_buffer_exists
+fff mplex _read_buffer_exists entered try
+fff mplex _read_buffer_exists obtained data
+msg: b'/echo_a/1.0.0' read from buffer 0
+
+
+
+
+REACHES ME1
+fff mplex send_message| data: b'/multistream/1.0.0'
+fff mplex write_to_stream
+fff mplex_stream read
+fff mplex read_buffer
+fff mplex handle_incoming| my_stream_id: 2
+fff mplex calling read_message
+fff mplex read_message
+fff mplex handle_incoming in while| id: 2, msg: b'/multistream/1.0.0', my_stream_id:0
+read: b'/multistream/1.0.0' for 2 from raw conn
+put msg: b'/multistream/1.0.0' for 2 in buffer
+2 buffer size: 1
+fff mplex calling read_message
+fff mplex read_message
+fff mplex handle_incoming in while| id: None, msg: None, my_stream_id:2
+read: None for None from raw conn
+put msg: None for None in buffer
+None buffer size: 1
+fff mplex handle_incoming exit
+fff mplex _read_buffer_exists
+fff mplex _read_buffer_exists entered try
+fff mplex handle_incoming in while| id: None, msg: None, my_stream_id:0
+read: None for None from raw conn
+put msg: None for None in buffer
+None buffer size: 1
+fff mplex handle_incoming exit
+fff mplex _read_buffer_exists
+fff mplex _read_buffer_exists entered try
+fff mplex _read_buffer_exists timeout error
+fff mplex _read_buffer_exists timeout error

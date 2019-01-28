@@ -1,0 +1,10 @@
+1) mplex_stream.read
+2) mplex_conn.read_buffer
+3)  
+	1) self.handle_incoming
+		1) self.read_message
+	2) self._read_buffer_exists
+		1) self.buffers[stream_id].get()
+
+
+Need to assign self.connections[peer_id] = mux_conn in conn_handler

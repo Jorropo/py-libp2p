@@ -31,6 +31,7 @@ class MplexStream(IMuxedStream):
         :param action: action type in str
         :return: int flag
         """
+        print("fff mplex_stream get_flag")
         if self.initiator:
             return HEADER_TAGS[action]
 
@@ -41,6 +42,7 @@ class MplexStream(IMuxedStream):
         read messages associated with stream from buffer til end of file
         :return: bytes of input
         """
+        print("fff mplex_stream read")
         return await self.mplex_conn.read_buffer(self.stream_id)
 
     async def write(self, data):
@@ -48,6 +50,7 @@ class MplexStream(IMuxedStream):
         write to stream
         :return: number of bytes written
         """
+        print("fff mplex_stream write")
         return await self.mplex_conn.send_message(self.get_flag("MESSAGE"), data, self.stream_id)
 
     async def close(self):
