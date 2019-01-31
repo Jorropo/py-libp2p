@@ -4,9 +4,11 @@ python:
   - "3.6"
 
 install:
+  - cp libp2p/network/multiaddr.py m.py.old
   - pip install --upgrade pip
   - pip install -r requirements_dev.txt
   - python setup.py develop
+  - mv m.py.old libp2p/network/multiaddr.py
 
 script:
   - pytest --cov=./libp2p tests/
